@@ -4,176 +4,50 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".presentation.MainActivity">
 
     <TextView
         android:id="@+id/txt_title"
+        style="@style/TextAppearance.AppCompat.Headline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:textStyle="bold"
-        android:textSize="24sp"
         android:text="@string/eletric_car"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tab_cars"
-        android:layout_width="wrap_content"
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_layout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:text="@string/cars"
-        android:textStyle="bold"
         android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_title" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_title">
 
-    <TextView
-        android:id="@+id/tab_favorites"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:text="@string/favorites"
-        android:textStyle="bold"
-        android:textSize="18sp"
-        app:layout_constraintStart_toEndOf="@+id/tab_cars"
-        app:layout_constraintTop_toTopOf="@+id/tab_cars" />
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/cars"/>
 
-    <ImageView
-        android:id="@+id/img_car"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/eletric_car"
-        android:layout_marginTop="16dp"
-        app:layout_constraintLeft_toLeftOf="@id/txt_title"
-        app:layout_constraintTop_toBottomOf="@id/tab_cars"/>
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/favorites"/>
+    </com.google.android.material.tabs.TabLayout>
 
-    <TextView
-        android:id="@+id/txt_price"
-        android:layout_width="70dp"
-        android:layout_height="wrap_content"
-        android:text="@string/price"
-        android:textSize="16sp"
-        android:layout_marginStart="16dp"
-        app:layout_constraintTop_toBottomOf="@id/img_car"
-        app:layout_constraintStart_toStartOf="parent"/>
-
-    <TextView
-        android:id="@+id/txt_price_value"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="R$ 300.000,00"
-        android:textSize="16sp"
-        android:layout_marginStart="16dp"
-        app:layout_constraintTop_toTopOf="@id/txt_price"
-        app:layout_constraintStart_toEndOf="@id/txt_price"/>
-
-    <TextView
-        android:id="@+id/txt_battery"
-        android:layout_width="70dp"
-        android:layout_height="wrap_content"
-        android:text="@string/battery"
-        android:textSize="16sp"
-        android:layout_marginStart="16dp"
-        app:layout_constraintTop_toBottomOf="@id/txt_price"
-        app:layout_constraintStart_toStartOf="parent"/>
-
-    <TextView
-        android:id="@+id/txt_battery_value"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="93,4 kWh"
-        android:textSize="16sp"
-        android:layout_marginStart="16dp"
-        app:layout_constraintTop_toTopOf="@id/txt_battery"
-        app:layout_constraintStart_toEndOf="@id/txt_battery"/>
-
-    <TextView
-        android:id="@+id/txt_power"
-        android:layout_width="70dp"
-        android:layout_height="wrap_content"
-        android:text="@string/power"
-        android:textSize="16sp"
-        android:layout_marginStart="16dp"
-        app:layout_constraintTop_toBottomOf="@id/txt_battery"
-        app:layout_constraintStart_toStartOf="parent"/>
-
-    <TextView
-        android:id="@+id/txt_power_value"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="646 cv"
-        android:textSize="16sp"
-        android:layout_marginStart="16dp"
-        app:layout_constraintTop_toTopOf="@id/txt_power"
-        app:layout_constraintStart_toEndOf="@id/txt_power"/>
-
-    <TextView
-        android:id="@+id/txt_recharge"
-        android:layout_width="70dp"
-        android:layout_height="wrap_content"
-        android:text="@string/recharge"
-        android:textSize="16sp"
-        android:layout_marginStart="16dp"
-        app:layout_constraintTop_toBottomOf="@id/txt_power"
-        app:layout_constraintStart_toStartOf="parent"/>
-
-    <TextView
-        android:id="@+id/txt_recharge_value"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="28 min"
-        android:textSize="16sp"
-        android:layout_marginStart="16dp"
-        app:layout_constraintTop_toTopOf="@id/txt_recharge"
-        app:layout_constraintStart_toEndOf="@id/txt_recharge"/>
-
-    <EditText
-        android:id="@+id/et_price"
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/vp_pager"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:ems="10"
-        android:maxLength="10"
-        android:maxLines="1"
-        android:inputType="numberDecimal"
-        android:hint="@string/price_power"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txt_recharge_value"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tab_layout"/>
 
-    <EditText
-        android:id="@+id/et_km_used"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:maxLength="10"
-        android:maxLines="1"
-        android:layout_marginTop="4dp"
-        android:inputType="numberDecimal"
-        android:hint="@string/km_used"
-        app:layout_constraintEnd_toEndOf="@id/et_price"
-        app:layout_constraintStart_toStartOf="@id/et_price"
-        app:layout_constraintTop_toBottomOf="@id/et_price"/>
-
-    <Button
-        android:id="@+id/btn_calc"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="@string/calculate"
-        android:layout_marginTop="10dp"
-        app:layout_constraintStart_toStartOf="@id/et_km_used"
-        app:layout_constraintEnd_toEndOf="@id/et_km_used"
-        app:layout_constraintTop_toBottomOf="@id/et_km_used"
-        />
-
-    <TextView
-        android:id="@+id/txt_result"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        app:layout_constraintTop_toBottomOf="@id/btn_calc"
-        app:layout_constraintStart_toStartOf="@+id/btn_calc"
-        />
+    
 
 </androidx.constraintlayout.widget.ConstraintLayout>

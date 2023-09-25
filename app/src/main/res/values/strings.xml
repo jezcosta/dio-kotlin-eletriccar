@@ -9,5 +9,6 @@
     <string name="recharge">Recarga:</string>
     <string name="price_power">Preço Kwh</string>
     <string name="km_used">Km Percorrido</string>
+    <string name="calculate_autonomy">Calcular Autonomia</string>
     <string name="calculate">Calcular</string>
 </resources>
